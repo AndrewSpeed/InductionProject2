@@ -29,12 +29,12 @@ DROP TABLE IF EXISTS `employees`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `employees` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `forename` varchar(30) NOT NULL,
   `surname` varchar(30) NOT NULL,
   `salary` decimal(11,2) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,7 +45,7 @@ DROP TABLE IF EXISTS `salesEmployees`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `salesEmployees` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `forename` varchar(30) NOT NULL,
   `surname` varchar(30) NOT NULL,
   `commissionRate` decimal(11,2) NOT NULL,
@@ -63,4 +63,4 @@ CREATE TABLE `salesEmployees` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-06-25  9:52:12
+-- Dump completed on 2015-06-25 13:06:58

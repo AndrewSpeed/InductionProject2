@@ -35,6 +35,7 @@ public class MainController {
 	
 	@RequestMapping(value="employees/add.html")
 	public String addEmployee(Model m) {
+		m.addAttribute("msg", "");
 		return "newEmployee";
 	}
 	

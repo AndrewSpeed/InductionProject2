@@ -11,7 +11,6 @@
 		<config>src/main/webapp/WEB-INF/employee-website-servlet.xml</config>
 	</configs>
 	<autoconfigs>
-		<config>src/main/webapp/WEB-INF/mvc-config.xml</config>
 	</autoconfigs>
 	<configSets>
 	</configSets>

@@ -36,4 +36,13 @@
 		<property name="username" value="testDbUser"></property>
 		<property name="password" value="MySuper5ecretPa55word!"></property>
 	</bean>
+	<bean id="sqlSessionFactory"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" value="dataSource"></property>
+	</bean>
+	<bean id="employeeMapper"
+		class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="data.IEmployeeMapper"></property>
+		<property name="sqlSessionFactory" value="sqlSessionFactory"></property>
+	</bean>
 </beans>

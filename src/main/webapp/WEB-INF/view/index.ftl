@@ -15,7 +15,7 @@
 	<#include "navbar.ftl">
 	
 	
-	<p>Here at Software Bandits we endeavor to endeavor to do better</p>
+	<p class="lead">Here at Software Bandits we endeavor to endeavor to do better</p>
 	
 	<p>Hodor hodor, hodor. Hodor hodor hodor hodor - HODOR hodor, hodor hodor hodor! Hodor HODOR hodor, hodor hodor hodor hodor HODOR hodor, hodor hodor? Hodor hodor HODOR! Hodor hodor, hodor. Hodor hodor - hodor... Hodor hodor hodor?! Hodor! Hodor hodor, hodor; hodor hodor... Hodor hodor hodor; hodor hodor hodor! Hodor HODOR hodor, hodor hodor, hodor. Hodor hodor hodor hodor... Hodor hodor hodor?! Hodor, hodor. Hodor. Hodor, hodor; hodor hodor hodor hodor, hodor. Hodor hodor?! Hodor. Hodor hodor, hodor. Hodor hodor hodor hodor, hodor. Hodor hodor; hodor hodor. </p>
 	

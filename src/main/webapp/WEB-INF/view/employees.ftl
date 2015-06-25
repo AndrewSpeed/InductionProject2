@@ -13,24 +13,27 @@
                 <li><a href="${rc.contextPath}/">Home</a></li>
 	            <li class="active">Employees</li>
             </ol>
-	        <table class="table table-bordered table-hover">
-	        <tr>
-	            <th>ID</th>
-	            <th>Forename</th>
-	            <th>Surname</th>
-	        </tr>
-	        <#list employees as employee>
-	        <tr>
-	            <#if (employee.salesId??) && (employee.salesId > 0)>
-	                <td><a href="${rc.contextPath}/salesEmployees/${employee.id}/details.html">${employee.id}</a></td>  
-	            <#else>
-	                <td><a href="${rc.contextPath}/employees/${employee.id}/details.html">${employee.id}</a></td>
-	            </#if>
-	            <td>${employee.forename}</td>
-	            <td>${employee.surname}</td>
-	        </tr>
-	        </#list>
-	        </table>
+            
+            <div class="table-responsive">
+		        <table class="table table-bordered table-hover">
+		        <tr>
+		            <th>ID</th>
+		            <th>Forename</th>
+		            <th>Surname</th>
+		        </tr>
+		        <#list employees as employee>
+		        <tr>
+		            <#if (employee.salesId??) && (employee.salesId > 0)>
+		                <td><a href="${rc.contextPath}/salesEmployees/${employee.id}/details.html">${employee.id}</a></td>  
+		            <#else>
+		                <td><a href="${rc.contextPath}/employees/${employee.id}/details.html">${employee.id}</a></td>
+		            </#if>
+		            <td>${employee.forename}</td>
+		            <td>${employee.surname}</td>
+		        </tr>
+		        </#list>
+		        </table>
+	        </div>
 	    </div>
 	</body>
 </html>

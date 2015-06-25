@@ -11,14 +11,15 @@ import org.apache.ibatis.annotations.Select;
 
 public interface IEmployeeMapper {
 
-	@Select("(SELECT id, forename, surname FROM employees) UNION (SELECT id, forename, surname FROM salesEmployees);")
+	@Select("(SELECT id, forename, surname, salary FROM employees) UNION" + 
+	        "(SELECT id, forename, surname, commissionRate FROM salesEmployees);")
 	List<BaseEmployee> getAllEmployees();
 	
 	@Select("SELECT id, forename, surname FROM employees;")
 	List<Employee> getEmployees();
 	
 	@Select("Select id, forename, surname FROM salesEmployees;")
-	List<SalesEmployee> getSalesEmployee();
+	List<SalesEmployee> getSalesEmployees();
 	
 	@Select("SELECT id, forename, surname, dateOfBirth, salary FROM employees WHERE id=#{id};")
 	public Employee getEmployeeById(int id);

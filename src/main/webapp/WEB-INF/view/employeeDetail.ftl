@@ -33,7 +33,15 @@
 			  <li><a href="${rc.contextPath}/employees/list.html">Employees</a></li>
 			  <li class="active">${employee.forename} ${employee.surname}</li>
 			</ol>
-		    <h2><span class="label label-primary">Salary:</span> £ ${employee.salary}</h2>
+			<#if employee.salary??>
+		      <h2><span class="label label-primary">Salary:</span> £ ${employee.salary}</h2>
+		    </#if>
+		    <#if employee.commissionRate??>
+              <h2><span class="label label-primary">Commission:</span> £ ${employee.commissionRate}</h2>
+            </#if>
+            <#if employee.salesTotal??>
+              <h2><span class="label label-primary">Total sales:</span> £ ${employee.salesTotal}</h2>
+            </#if>
 	   </div>
 	</body>
 </html>

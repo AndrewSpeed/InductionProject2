@@ -10,7 +10,6 @@ import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -38,6 +37,12 @@ public class MainController {
 	}
 	
 	@RequestMapping(value="employees/list.html")
+	public String listAllStaff(Model m) {
+		m.addAttribute("employees", employeeMapper.getAllEmployees());
+		return "employees";
+	}
+	
+	@RequestMapping(value="employees/listEmployees.html")
 	public String listEmployees(Model m) {
 		m.addAttribute("employees", employeeMapper.getEmployees());
 		return "employees";
@@ -46,7 +51,7 @@ public class MainController {
 	@RequestMapping(value="employees/listSaleEmployees.html")
 	public String listSalesEmployees(Model m) {
 		m.addAttribute("employees", employeeMapper.getSalesEmployees());
-		return "salesEmployees";
+		return "employees";
 	}
 	
 	@RequestMapping(value="employees/add.html", method=RequestMethod.GET)
@@ -58,6 +63,7 @@ public class MainController {
 	@RequestMapping(value="employees/add.html", method=RequestMethod.POST)
 	public String addEmployeePost(@Valid Employee employee, BindingResult bindingResult, Model m) {
 		System.out.println("Executing code.");
+		String message = "";
 		if (bindingResult.hasErrors()) {
 			System.out.println("Error");
 			m.addAttribute("msg", message);

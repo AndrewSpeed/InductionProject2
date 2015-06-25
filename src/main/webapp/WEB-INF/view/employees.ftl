@@ -37,16 +37,16 @@
             <th>ID</th>
             <th>Forename</th>
             <th>Surname</th>
-			<th>Date of birth</th>
-            <th>Salary</th>
         </tr>
         <#list employees as employee>
         <tr>
-            <td><a href="${rc.contextPath}/employees/${employee.id}/details.html">${employee.id}</a></td>
+            <#if employee.salary??>
+                <td><a href="${rc.contextPath}/employees/${employee.id}/details.html">${employee.id}</a></td>
+            </#if>
+            <#if employee.commissionRate??>
+                <td><a href="${rc.contextPath}/salesEmployees/${employee.id}/details.html">${employee.id}</a></td>
             <td>${employee.forename}</td>
             <td>${employee.surname}</td>
-			<td>${employee.dateOfBirth}</td>
-            <td>£ ${employee.salary}</td>
         </tr>
         </#list>
         </table>

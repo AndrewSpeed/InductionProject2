@@ -39,8 +39,18 @@ CREATE TABLE `employees` (
   PRIMARY KEY (`id`),
   KEY `salesId` (`salesId`),
   CONSTRAINT `employees_ibfk_1` FOREIGN KEY (`salesId`) REFERENCES `salesEmployees` (`salesId`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `employees`
+--
+
+LOCK TABLES `employees` WRITE;
+/*!40000 ALTER TABLE `employees` DISABLE KEYS */;
+INSERT INTO `employees` VALUES (1,'Andrew','Speed','1991-08-10',50000.00,1),(2,'Neil','Rafferty','1988-01-01',60000.00,NULL),(3,'Bobby','Tables','1995-04-24',25000.00,2),(4,'Sandra','Swanson','1990-06-10',30000.00,3),(5,'Linus','Torvalds','1984-03-15',17000.00,4),(6,'Regular','Employee','1987-10-12',35000.00,NULL);
+/*!40000 ALTER TABLE `employees` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `salesEmployees`
@@ -54,8 +64,18 @@ CREATE TABLE `salesEmployees` (
   `commissionRate` decimal(11,5) NOT NULL,
   `salesTotal` int(11) NOT NULL,
   PRIMARY KEY (`salesId`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `salesEmployees`
+--
+
+LOCK TABLES `salesEmployees` WRITE;
+/*!40000 ALTER TABLE `salesEmployees` DISABLE KEYS */;
+INSERT INTO `salesEmployees` VALUES (1,0.05000,1000),(2,0.25000,75000),(3,0.02000,250),(4,0.03000,750);
+/*!40000 ALTER TABLE `salesEmployees` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -66,4 +86,4 @@ CREATE TABLE `salesEmployees` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-06-25 21:28:31
+-- Dump completed on 2015-06-25 23:09:27

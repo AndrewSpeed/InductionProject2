@@ -24,6 +24,11 @@ public class MainController {
 	
 	@RequestMapping(value="index.html")
 	public String homePage(Model m) {
+		return "index";
+	}
+	
+	@RequestMapping(value="employees.html")
+	public String employees(Model m) {
 		try {
 			Connection c = dataSource.getConnection();
 			Statement s = c.createStatement();
@@ -44,7 +49,7 @@ public class MainController {
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
 		}
-		return "index";
+		return "employees";
 	}
 
 }

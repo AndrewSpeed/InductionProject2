@@ -27,6 +27,6 @@
   </ul>
 </div>
 <p>Here at Software Bandits we endeavor to endeavor to do better</p>
-<a href="http://localhost:8080/Home/Employees">List All Employees</a>
+<a href="${rc.contextPath}/employees.html">List All Employees</a>
 </body>
 </html>

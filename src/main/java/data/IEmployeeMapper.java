@@ -13,6 +13,9 @@ public interface IEmployeeMapper {
 	@Select("SELECT id, forename, surname, dateOfBirth, salary FROM employees;")
 	List<Employee> getEmployees();
 	
+	@Select("SELECT id, forename, surname, dateOfBirth, salary FROM employees WHERE id=#{id};")
+	public Employee getEmployeeById(int id);
+	
 	@Insert("INSERT INTO employees(forename, surname, salary) VALUES (#{forename}, #{surname}, #{salary})")
 	public void insertEmployee(Employee newEmployee);
 	

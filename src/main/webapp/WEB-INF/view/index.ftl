@@ -1,15 +1,10 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-		
-		<!-- Optional theme -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-		
-		<!-- Latest compiled and minified JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<#include "scriptsAndStyle.ftl">
+
+        <!-- Include custom CSS -->
+        <link rel="stylesheet" href="${rc.contextPath}/resources/style.css">
 		<meta charset="UTF-8">
 		<title>Home</title>
 	</head>
@@ -17,22 +12,7 @@
 	<div class="container">
 	<h1>Welcome to our Website!</h1>
 	<h2>By Software Bandits</h2>
-	<nav class="navbar navbar-default">
-	  <div class="container-fluid">
-	    <!-- Brand and toggle get grouped for better mobile display -->
-	    <div class="navbar-header">
-	       <ul class="nav navbar-nav">
-             <li><a href="${rc.contextPath}/employees/list.html">List All Staff <span class="sr-only">(current)</span></a></li>
-		     <li class="separator"></li>
-		     <li><a href="${rc.contextPath}/employees/listEmployees.html">List Employees <span class="sr-only">(current)</span></a></li>
-		     <li class="separator"></li>
-		     <li><a href="${rc.contextPath}/employees/listSaleEmployees.html">List Sales Employees <span class="sr-only">(current)</span></a></li>
-		     <!--<li><a href="${rc.contextPath}/employees/add.html">Add Employee <span class="sr-only">(current)</span></a></li>
-		      -->
-		   </ul>
-	    </div><!-- /.navbar-collapse -->
-	  </div><!-- /.container-fluid -->
-	</nav>
+	<#include "navbar.ftl">
 	
 	
 	<p>Here at Software Bandits we endeavor to endeavor to do better</p>

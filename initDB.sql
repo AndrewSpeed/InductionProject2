@@ -1,3 +1,4 @@
+Drop Database testDB;
 CREATE DATABASE testDB;
 
 CREATE USER 'testDbUser'@'localhost';
@@ -65,3 +66,11 @@ CREATE TABLE `salesEmployees` (
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2015-06-25 13:06:58
+
+-- Insert statements
+
+Insert into employees(forename, surname, salary) values('Neil', 'Rafferty', 50000.01);
+Insert into employees(forename, surname, salary) values('Andrew', 'Speed', 50000.00);
+Insert into employees(forename, surname, salary) values('Jon', 'Snow', 100.00);
+Insert into employees(forename, surname, salary) values('Rick', 'Grimes', 15000.00);
+Insert into employees(forename, surname, salary) values('Peter', 'Parker', 1090.00);

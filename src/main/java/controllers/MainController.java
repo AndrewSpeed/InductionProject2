@@ -80,5 +80,11 @@ public class MainController {
 		m.addAttribute("employee", employeeMapper.getEmployeeById(id));
 		return "employeeDetail";
 	}
+	
+	@RequestMapping(value="salesEmployees/{id}/details.html")
+	public String salesEmployeeDetails(Model m, @PathVariable int id) {
+		m.addAttribute("employee", employeeMapper.getSalesEmployeeById(id));
+		return "employeeDetail";
+	}
 
 }

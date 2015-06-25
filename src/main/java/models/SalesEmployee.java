@@ -2,8 +2,8 @@ package models;
 
 import java.math.BigDecimal;
 
-public class SalesEmployee extends BaseEmployee{
-
+public class SalesEmployee extends Employee{
+	
 	private BigDecimal commissionRate;
 	private int salesTotal;
 

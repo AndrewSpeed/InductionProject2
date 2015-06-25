@@ -2,7 +2,6 @@ package data;
 
 import java.util.List;
 
-import models.BaseEmployee;
 import models.Employee;
 import models.SalesEmployee;
 
@@ -11,18 +10,21 @@ import org.apache.ibatis.annotations.Select;
 
 public interface IEmployeeMapper {
 
-	@Select("(SELECT id, forename, surname, salary FROM employees) UNION" + 
-	        "(SELECT id, forename, surname, commissionRate FROM salesEmployees);")
-	List<BaseEmployee> getAllEmployees();
+	@Select("(SELECT id, forename, surname, salesId FROM employees);")
+	List<Employee> getAllEmployees();
 	
-	@Select("SELECT id, forename, surname FROM employees;")
+	@Select("SELECT id, forename, surname FROM employees WHERE salesId IS NULL;")
 	List<Employee> getEmployees();
 	
-	@Select("Select id, forename, surname FROM salesEmployees;")
+	@Select("SELECT id, forename, surname FROM employees WHERE salesId IS NOT NULL;")
 	List<SalesEmployee> getSalesEmployees();
 	
-	@Select("SELECT id, forename, surname, dateOfBirth, salary FROM employees WHERE id=#{id};")
+	@Select("SELECT forename, surname, dateOfBirth, salary FROM employees WHERE id=#{id};")
 	public Employee getEmployeeById(int id);
+	
+	@Select("SELECT forename, surname, dateOfBirth, salary, commissionRate, salesTotal FROM employees " +
+			"INNER JOIN (salesEmployees) ON (employees.salesId=salesEmployees.salesId) WHERE id=#{id};")
+	public SalesEmployee getSalesEmployeeById(int id);
 	
 	@Insert("INSERT INTO employees(forename, surname, salary) VALUES (#{forename}, #{surname}, #{salary})")
 	public void insertEmployee(Employee newEmployee);

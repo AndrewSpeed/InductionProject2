@@ -1,11 +1,5 @@
 package controllers;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,10 +26,15 @@ public class MainController {
 		return "index";
 	}
 	
-	@RequestMapping(value="employees.html")
-	public String employees(Model m) {
+	@RequestMapping(value="list/employees.html")
+	public String listEmployees(Model m) {
 		m.addAttribute("employees", employeeMapper.getEmployees());
 		return "employees";
+	}
+	
+	@RequestMapping(value="add/employees.html")
+	public String addEmployee(Model m) {
+		return "newEmployee";
 	}
 
 }

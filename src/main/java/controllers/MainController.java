@@ -43,6 +43,12 @@ public class MainController {
 		return "employees";
 	}
 	
+	@RequestMapping(value="employees/listSaleEmployees.html")
+	public String listSalesEmployees(Model m) {
+		m.addAttribute("employees", employeeMapper.getSalesEmployees());
+		return "salesEmployees";
+	}
+	
 	@RequestMapping(value="employees/add.html", method=RequestMethod.GET)
 	public String addEmployeeGet(Model m) {
 		m.addAttribute("msg", "");
@@ -52,18 +58,7 @@ public class MainController {
 	@RequestMapping(value="employees/add.html", method=RequestMethod.POST)
 	public String addEmployeePost(@Valid Employee employee, BindingResult bindingResult, Model m) {
 		if (bindingResult.hasErrors()) {
-			String message = "";
-			for (Object object : bindingResult.getAllErrors()) {
-			    if(object instanceof FieldError) {
-			        FieldError fieldError = (FieldError) object;
 
-			        /**
-			          * Use null as second parameter if you do not use i18n (internationalization)
-			          */
-
-			        message += messageSource.getMessage(fieldError, null);
-			    }
-			}
 			m.addAttribute("msg", message);
             return "newEmployee";
         }		

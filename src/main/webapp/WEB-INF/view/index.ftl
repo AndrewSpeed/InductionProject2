@@ -24,7 +24,8 @@
 	       <ul class="nav navbar-nav">
              <li><a href="${rc.contextPath}/employees/list.html">List Employees <span class="sr-only">(current)</span></a></li>
 		     <li class="separator"></li>
-		     <li><a href="${rc.contextPath}/employees/add.html">Add Employee <span class="sr-only">(current)</span></a></li>
+		     <!--<li><a href="${rc.contextPath}/employees/add.html">Add Employee <span class="sr-only">(current)</span></a></li>
+		      -->
 		   </ul>
 	    </div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->

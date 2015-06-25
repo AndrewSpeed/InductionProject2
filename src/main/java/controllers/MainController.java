@@ -57,11 +57,13 @@ public class MainController {
 	
 	@RequestMapping(value="employees/add.html", method=RequestMethod.POST)
 	public String addEmployeePost(@Valid Employee employee, BindingResult bindingResult, Model m) {
+		System.out.println("Executing code.");
 		if (bindingResult.hasErrors()) {
-
+			System.out.println("Error");
 			m.addAttribute("msg", message);
             return "newEmployee";
-        }		
+        }
+		employeeMapper.insertEmployee(employee);
 		int id = employee.getId();
 		m.addAttribute("employee", employeeMapper.getEmployeeById(id));
 		return "employeeDetail";

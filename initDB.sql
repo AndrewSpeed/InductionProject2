@@ -74,3 +74,7 @@ Insert into employees(forename, surname, salary) values('Andrew', 'Speed', 50000
 Insert into employees(forename, surname, salary) values('Jon', 'Snow', 100.00);
 Insert into employees(forename, surname, salary) values('Rick', 'Grimes', 15000.00);
 Insert into employees(forename, surname, salary) values('Peter', 'Parker', 1090.00);
+Insert into employees(forename, surname, salary) values('John', 'Smith', 22000.00);
+Insert into employees(forename, surname, salary) values('Jill', 'Peterson', 25000.00);
+Insert into employees(forename, surname, salary) values('Samantha', 'Joyce', 30000.00);
+

@@ -38,11 +38,11 @@
 	</bean>
 	<bean id="sqlSessionFactory"
 		class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" value="dataSource"></property>
+		<property name="dataSource" ref="dataSource"></property>
 	</bean>
 	<bean id="employeeMapper"
 		class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="mapperInterface" value="data.IEmployeeMapper"></property>
-		<property name="sqlSessionFactory" value="sqlSessionFactory"></property>
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
 	</bean>
 </beans>

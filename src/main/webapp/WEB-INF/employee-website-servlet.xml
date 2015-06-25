@@ -10,12 +10,39 @@
 		class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
 		<property name="suffix" value=".ftl"></property>
 		<property name="cache" value="true"></property>
+		<property name="requestContextAttribute" value="rc"></property>
 	</bean>
 	<bean id="freemarkerConfig"
 		class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
-		<property name="templateLoaderPath" value="/WEB-INF/views/"></property>
+		<property name="templateLoaderPath" value="/WEB-INF/view/"></property>
 	</bean>
+	<bean id="resolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/view/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+	
 	<context:component-scan base-package="controllers"></context:component-scan>
 	
 	
+	
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName"
+			value="com.mysql.jdbc.Driver">
+		</property>
+		<property name="url" value="jdbc:mysql://localhost/testDB"></property>
+		<property name="username" value="testDbUser"></property>
+		<property name="password" value="MySuper5ecretPa55word!"></property>
+	</bean>
+	<bean id="sqlSessionFactory"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	<bean id="employeeMapper"
+		class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="data.IEmployeeMapper"></property>
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+	</bean>
 </beans>

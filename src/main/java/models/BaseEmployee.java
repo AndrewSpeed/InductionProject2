@@ -10,27 +10,27 @@ public class BaseEmployee {
 		
 	}
 
-	private int getId() {
+	public int getId() {
 		return id;
 	}
 
-	private void setId(int id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
-	private String getForename() {
+	public String getForename() {
 		return forename;
 	}
 
-	private void setForename(String forename) {
+	public void setForename(String forename) {
 		this.forename = forename;
 	}
 
-	private String getSurname() {
+	public String getSurname() {
 		return surname;
 	}
 
-	private void setSurname(String surname) {
+	public void setSurname(String surname) {
 		this.surname = surname;
 	}
 

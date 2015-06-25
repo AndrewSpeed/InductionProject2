@@ -1,12 +1,19 @@
 package controllers;
 
 import javax.sql.DataSource;
+import javax.validation.Valid;
+
+import models.Employee;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import data.IEmployeeMapper;
 
@@ -18,6 +25,9 @@ public class MainController {
 	
 	@Autowired
 	public IEmployeeMapper employeeMapper;
+	
+	@Autowired
+	private MessageSource messageSource;
 
 	public MainController() {
 	}
@@ -33,10 +43,33 @@ public class MainController {
 		return "employees";
 	}
 	
-	@RequestMapping(value="employees/add.html")
-	public String addEmployee(Model m) {
+	@RequestMapping(value="employees/add.html", method=RequestMethod.GET)
+	public String addEmployeeGet(Model m) {
 		m.addAttribute("msg", "");
 		return "newEmployee";
+	}
+	
+	@RequestMapping(value="employees/add.html", method=RequestMethod.POST)
+	public String addEmployeePost(@Valid Employee employee, BindingResult bindingResult, Model m) {
+		if (bindingResult.hasErrors()) {
+			String message = "";
+			for (Object object : bindingResult.getAllErrors()) {
+			    if(object instanceof FieldError) {
+			        FieldError fieldError = (FieldError) object;
+
+			        /**
+			          * Use null as second parameter if you do not use i18n (internationalization)
+			          */
+
+			        message += messageSource.getMessage(fieldError, null);
+			    }
+			}
+			m.addAttribute("msg", message);
+            return "newEmployee";
+        }		
+		int id = employee.getId();
+		m.addAttribute("employee", employeeMapper.getEmployeeById(id));
+		return "employeeDetail";
 	}
 	
 	@RequestMapping(value="employees/{id}/details.html")

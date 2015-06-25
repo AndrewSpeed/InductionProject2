@@ -32,7 +32,7 @@
 		              <li><a href="${rc.contextPath}/">Home</a></li>
 		              <li class="active">Add Employee</li>
 		            </ol>
-			<form action="action_page.php">
+			<form action="newEmployee.html" method="POST">
 				<fieldset>
 					<legend>Employee Details:</legend>
 					Forename:<br> <input type="text" name="forename" value=""> <br>

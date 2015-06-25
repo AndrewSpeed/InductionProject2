@@ -2,11 +2,21 @@ package models;
 
 import java.sql.Date;
 
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
+
 public class BaseEmployee {
 	
+	
 	private int id;
+	
+	@Size(min=2, max=30)
 	private String forename;
+	
+	@Size(min=2, max=30)
 	private String surname;
+	
+	@Past
 	private Date dateOfBirth;
 
 	public BaseEmployee() {

@@ -45,7 +45,7 @@ USE testDB;
 DROP TABLE IF EXISTS `employees`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `employees` (
+CREATE TABLE `employees`(forename, surname, salary) (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `forename` varchar(30) NOT NULL,
   `surname` varchar(30) NOT NULL,
@@ -61,7 +61,13 @@ CREATE TABLE `employees` (
 
 LOCK TABLES `employees` WRITE;
 /*!40000 ALTER TABLE `employees` DISABLE KEYS */;
-INSERT INTO `employees` VALUES (5,'Andrew','Speed',50000.00,'1991-08-10'),(6,'Neil','Rafferty',50000.00,'1988-01-01');
+INSERT INTO `employees` VALUES ('Andrew','Speed',50000.00,'1991-08-10'),('Neil','Rafferty',50000.00,'1988-04-19'),
+('Jon', 'Snow', 100.00, 1995-01,06),
+('Rick', 'Grimes', 15000.00, 1989-07-30),
+('Peter', 'Parker', 1090.00, 1963-08-25),
+('John', 'Smith', 22000.00, 1975-03-19),
+('Jill', 'Peterson', 25000.00, 1901-02-14),
+('Samantha', 'Joyce', 30000.00, 1992-05-15);
 /*!40000 ALTER TABLE `employees` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -102,15 +108,3 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2015-06-25 14:37:51
-
--- Insert statements
-
-Insert into employees(forename, surname, salary) values('Neil', 'Rafferty', 50000.01);
-Insert into employees(forename, surname, salary) values('Andrew', 'Speed', 50000.00);
-Insert into employees(forename, surname, salary) values('Jon', 'Snow', 100.00);
-Insert into employees(forename, surname, salary) values('Rick', 'Grimes', 15000.00);
-Insert into employees(forename, surname, salary) values('Peter', 'Parker', 1090.00);
-Insert into employees(forename, surname, salary) values('John', 'Smith', 22000.00);
-Insert into employees(forename, surname, salary) values('Jill', 'Peterson', 25000.00);
-Insert into employees(forename, surname, salary) values('Samantha', 'Joyce', 30000.00);
-

@@ -51,22 +51,20 @@ public class MainController {
 	
 	@RequestMapping(value="employees/add.html", method=RequestMethod.POST)
 	public String addEmployeePost(@Valid Employee employee, BindingResult bindingResult, Model m) {
+		System.out.println("Executing code.");
 		if (bindingResult.hasErrors()) {
+			System.out.println("Error");
 			String message = "";
 			for (Object object : bindingResult.getAllErrors()) {
 			    if(object instanceof FieldError) {
 			        FieldError fieldError = (FieldError) object;
-
-			        /**
-			          * Use null as second parameter if you do not use i18n (internationalization)
-			          */
-
 			        message += messageSource.getMessage(fieldError, null);
 			    }
 			}
 			m.addAttribute("msg", message);
             return "newEmployee";
-        }		
+        }
+		employeeMapper.insertEmployee(employee);
 		int id = employee.getId();
 		m.addAttribute("employee", employeeMapper.getEmployeeById(id));
 		return "employeeDetail";

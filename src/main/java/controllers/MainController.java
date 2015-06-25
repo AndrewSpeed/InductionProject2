@@ -5,6 +5,7 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import data.IEmployeeMapper;
@@ -26,15 +27,21 @@ public class MainController {
 		return "index";
 	}
 	
-	@RequestMapping(value="list/employees.html")
+	@RequestMapping(value="employees/list.html")
 	public String listEmployees(Model m) {
 		m.addAttribute("employees", employeeMapper.getEmployees());
 		return "employees";
 	}
 	
-	@RequestMapping(value="add/employees.html")
+	@RequestMapping(value="employees/add.html")
 	public String addEmployee(Model m) {
 		return "newEmployee";
+	}
+	
+	@RequestMapping(value="employees/{id}/details.html")
+	public String employeeDetails(Model m, @PathVariable int id) {
+		m.addAttribute("employee", employeeMapper.getEmployeeById(id));
+		return "employeeDetail";
 	}
 
 }

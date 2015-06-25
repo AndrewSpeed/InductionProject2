@@ -21,7 +21,7 @@
             <th>ID</th>
             <th>Forename</th>
             <th>Surname</th>
-            <th>Date of birth</th>
+			<th>Date of birth</th>
             <th>Salary</th>
         </tr>
         <#list employees as employee>
@@ -29,7 +29,7 @@
             <td>${employee.id}</td>
             <td>${employee.forename}</td>
             <td>${employee.surname}</td>
-            <td>${employee.dateOfBirth}</td>
+			<td>${employee.dateOfBirth}</td>
             <td>${employee.salary}</td>
         </tr>
         </#list>

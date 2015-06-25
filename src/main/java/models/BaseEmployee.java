@@ -1,10 +1,13 @@
 package models;
 
+import java.sql.Date;
+
 public class BaseEmployee {
 	
 	private int id;
 	private String forename;
 	private String surname;
+	private Date dateOfBirth;
 
 	public BaseEmployee() {
 		
@@ -32,6 +35,14 @@ public class BaseEmployee {
 
 	public void setSurname(String surname) {
 		this.surname = surname;
+	}
+
+	public Date getDateOfBirth() {
+		return dateOfBirth;
+	}
+
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
 	}
 
 }
